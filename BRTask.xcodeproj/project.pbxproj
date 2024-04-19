@@ -11,6 +11,12 @@
 		38521D032BD1F91700C4F965 /* Cards+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D012BD1F91700C4F965 /* Cards+CoreDataClass.swift */; };
 		38521D042BD1F91700C4F965 /* Cards+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D022BD1F91700C4F965 /* Cards+CoreDataProperties.swift */; };
 		38521D062BD1F95D00C4F965 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D052BD1F95D00C4F965 /* CoreData.swift */; };
+		385452B92BD2721B004D490C /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452B82BD2721B004D490C /* RegisterViewModel.swift */; };
+		385452BC2BD27436004D490C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452BB2BD27436004D490C /* HomeViewModel.swift */; };
+		385452BE2BD274FD004D490C /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452BD2BD274FD004D490C /* CardModel.swift */; };
+		385452C42BD27596004D490C /* CardCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C32BD27596004D490C /* CardCreateViewModel.swift */; };
+		385452C62BD28379004D490C /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C52BD28379004D490C /* TransferViewModel.swift */; };
+		385452C82BD288FF004D490C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C72BD288FE004D490C /* ProfileViewModel.swift */; };
 		3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */; };
 		3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */; };
 		3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */; };
@@ -26,10 +32,11 @@
 		38D3A8D82BD1A7C30095A007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38D3A8D72BD1A7C30095A007 /* SnapKit */; };
 		38D3A8DA2BD1B1FC0095A007 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */; };
 		38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */; };
-		38D3A8DF2BD1C7990095A007 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DE2BD1C7990095A007 /* Models.swift */; };
+		38D3A8DF2BD1C7990095A007 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DE2BD1C7990095A007 /* UserModel.swift */; };
 		38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E02BD1C9E10095A007 /* TabViewController.swift */; };
 		38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E22BD1CA1C0095A007 /* HomeController.swift */; };
 		38D3A8E52BD1CA2E0095A007 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */; };
+		38E2444A2BD253F6005FC496 /* TransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E244492BD253F6005FC496 /* TransferController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,12 @@
 		38521D012BD1F91700C4F965 /* Cards+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataClass.swift"; sourceTree = "<group>"; };
 		38521D022BD1F91700C4F965 /* Cards+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		38521D052BD1F95D00C4F965 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		385452B82BD2721B004D490C /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		385452BB2BD27436004D490C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		385452BD2BD274FD004D490C /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		385452C32BD27596004D490C /* CardCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreateViewModel.swift; sourceTree = "<group>"; };
+		385452C52BD28379004D490C /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		385452C72BD288FE004D490C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		3857ED572BD180EC00FAC96F /* BRTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,10 +84,11 @@
 		3857ED942BD1A44C00FAC96F /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
 		38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
-		38D3A8DE2BD1C7990095A007 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		38D3A8DE2BD1C7990095A007 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		38D3A8E02BD1C9E10095A007 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		38D3A8E22BD1CA1C0095A007 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		38E244492BD253F6005FC496 /* TransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		385452B62BD27142004D490C /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */,
+				385452B82BD2721B004D490C /* RegisterViewModel.swift */,
+				38D3A8DE2BD1C7990095A007 /* UserModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		385452B72BD2715A004D490C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */,
+				38521D052BD1F95D00C4F965 /* CoreData.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		385452BA2BD2740D004D490C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				38D3A8E22BD1CA1C0095A007 /* HomeController.swift */,
+				385452BB2BD27436004D490C /* HomeViewModel.swift */,
+				385452BD2BD274FD004D490C /* CardModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		385452BF2BD27524004D490C /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				38E244492BD253F6005FC496 /* TransferController.swift */,
+				385452C52BD28379004D490C /* TransferViewModel.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		385452C12BD2753B004D490C /* CardCreation */ = {
+			isa = PBXGroup;
+			children = (
+				38521CFB2BD1ED3B00C4F965 /* CardCreateController.swift */,
+				385452C32BD27596004D490C /* CardCreateViewModel.swift */,
+			);
+			path = CardCreation;
+			sourceTree = "<group>";
+		};
+		385452C22BD27549004D490C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */,
+				385452C72BD288FE004D490C /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		3857ED4E2BD180EC00FAC96F = {
 			isa = PBXGroup;
 			children = (
@@ -129,16 +199,15 @@
 			children = (
 				3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */,
 				3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */,
-				3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */,
-				38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */,
-				38D3A8E02BD1C9E10095A007 /* TabViewController.swift */,
-				38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */,
-				38D3A8E22BD1CA1C0095A007 /* HomeController.swift */,
-				38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */,
-				38521CFB2BD1ED3B00C4F965 /* CardCreateController.swift */,
-				38521D052BD1F95D00C4F965 /* CoreData.swift */,
-				38D3A8DE2BD1C7990095A007 /* Models.swift */,
+				385452B72BD2715A004D490C /* Managers */,
 				3857ED932BD19E5500FAC96F /* Extentions */,
+				3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */,
+				38D3A8E02BD1C9E10095A007 /* TabViewController.swift */,
+				385452B62BD27142004D490C /* Register */,
+				385452BA2BD2740D004D490C /* Home */,
+				385452C12BD2753B004D490C /* CardCreation */,
+				385452BF2BD27524004D490C /* Transfer */,
+				385452C22BD27549004D490C /* Profile */,
 				3857ED942BD1A44C00FAC96F /* animation.json */,
 				3857ED662BD180EE00FAC96F /* Assets.xcassets */,
 				3857ED6B2BD180EE00FAC96F /* Info.plist */,
@@ -313,20 +382,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385452BC2BD27436004D490C /* HomeViewModel.swift in Sources */,
 				3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */,
 				3857ED922BD19E4100FAC96F /* StringExtention.swift in Sources */,
 				38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */,
+				38E2444A2BD253F6005FC496 /* TransferController.swift in Sources */,
+				385452C42BD27596004D490C /* CardCreateViewModel.swift in Sources */,
 				38521CFC2BD1ED3B00C4F965 /* CardCreateController.swift in Sources */,
 				3857ED8E2BD1818A00FAC96F /* InitialViewController.swift in Sources */,
 				38D3A8DA2BD1B1FC0095A007 /* RegisterController.swift in Sources */,
+				385452B92BD2721B004D490C /* RegisterViewModel.swift in Sources */,
+				385452BE2BD274FD004D490C /* CardModel.swift in Sources */,
 				3857ED902BD19DE400FAC96F /* ColorExtention.swift in Sources */,
 				38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */,
-				38D3A8DF2BD1C7990095A007 /* Models.swift in Sources */,
+				38D3A8DF2BD1C7990095A007 /* UserModel.swift in Sources */,
 				3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */,
+				385452C82BD288FF004D490C /* ProfileViewModel.swift in Sources */,
 				38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */,
 				3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */,
 				38521D062BD1F95D00C4F965 /* CoreData.swift in Sources */,
 				38521D032BD1F91700C4F965 /* Cards+CoreDataClass.swift in Sources */,
+				385452C62BD28379004D490C /* TransferViewModel.swift in Sources */,
 				38521D042BD1F91700C4F965 /* Cards+CoreDataProperties.swift in Sources */,
 				38D3A8E52BD1CA2E0095A007 /* ProfileController.swift in Sources */,
 			);

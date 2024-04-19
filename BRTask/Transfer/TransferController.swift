@@ -14,10 +14,8 @@ protocol TransferDelegate: AnyObject {
 class TransferController: UIViewController {
     
     weak var delegate: TransferDelegate?
+    private let viewmodel = TransferViewModel()
     
-    
-    private let coreData = CoreData()
-    private var cards: [Cards] = []
     
     private lazy var fromCardPicker: UIPickerView = {
         let pickerView = UIPickerView()
@@ -60,8 +58,7 @@ class TransferController: UIViewController {
     }
     
     private func fetchCardData() {
-        coreData.fetchCardDatas { [weak self] cards in
-            self?.cards = cards
+        viewmodel.fetchCardData { [weak self] in
             self?.fromCardPicker.reloadAllComponents()
             self?.toCardPicker.reloadAllComponents()
         }
@@ -121,7 +118,6 @@ class TransferController: UIViewController {
         let fromIndex = fromCardPicker.selectedRow(inComponent: 0)
         let toIndex = toCardPicker.selectedRow(inComponent: 0)
         
-        // Check if the same card is selected on both sides
         guard fromIndex != toIndex else {
             let alert = UIAlertController(title: "Invalid Selection",
                                           message: "You cannot transfer money from and to the same card.",
@@ -131,40 +127,43 @@ class TransferController: UIViewController {
             return
         }
         
-        guard fromIndex >= 0 && fromIndex < cards.count,
-              toIndex >= 0 && toIndex < cards.count,
+        guard fromIndex >= 0 && fromIndex < viewmodel.cards.count,
+              toIndex >= 0 && toIndex < viewmodel.cards.count,
               let amountText = amountTextField.text,
+              !amountText.isEmpty,
               let amount = Double(amountText) else {
-            return
-        }
-        
-        let fromCard = cards[fromIndex]
-        let toCard = cards[toIndex]
-        
-        if fromCard.balance >= amount {
-            fromCard.balance -= amount
-            toCard.balance += amount
-            
-            coreData.updateCardDatas(card: fromCard)
-            coreData.updateCardDatas(card: toCard)
-            
-            delegate?.transferCompleted()
-            
-            let alert = UIAlertController(title: "Transfer Successful",
-                                          message: "The amount has been transferred successfully.",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
-            present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Insufficient Balance",
-                                          message: "The selected card does not have sufficient balance.",
+            let alert = UIAlertController(title: "Missing Amount",
+                                          message: "Please enter the amount you want to transfer.",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        let fromCard = viewmodel.cards[fromIndex]
+        let toCard = viewmodel.cards[toIndex]
+        
+        viewmodel.transferAmount(fromIndex: fromIndex, toIndex: toIndex, amount: amount) { [weak self] success in
+            if success {
+                self?.delegate?.transferCompleted()
+                
+                let alert = UIAlertController(title: "Transfer Successful",
+                                              message: "The amount has been transferred successfully.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+                self?.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Error",
+                                              message: "Failed to transfer amount. Please try again later.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
         }
     }
+    
 }
 
 extension TransferController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -173,11 +172,11 @@ extension TransferController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return cards.count
+        return viewmodel.cards.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return cards[row].cardNumber
+        return viewmodel.cards[row].cardNumber
     }
 }
 

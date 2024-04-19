@@ -12,10 +12,3 @@ struct User: Codable {
     var phoneNumber: String
     var dateOfBirth: Date
 }
-
-struct CardModel {
-    let cardNumber: String
-    var balance: Double
-    let expDate: String
-    let cvv: Int
-}

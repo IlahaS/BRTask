@@ -9,7 +9,7 @@ import SnapKit
 
 class ProfileController: UIViewController {
     
-    private var user: User?
+    private let viewModel = ProfileViewModel()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -28,7 +28,7 @@ class ProfileController: UIViewController {
         button.layer.shadowOpacity = 0.8
         button.layer.shadowOffset = CGSize(width: 0, height: 3)
         button.layer.shadowRadius = 4
-        button.addTarget(self, action: #selector(goToInitialScreen), for: .touchUpInside)
+        button.addTarget(self, action: #selector(logout), for: .touchUpInside)
         return button
     }()
     
@@ -57,11 +57,13 @@ class ProfileController: UIViewController {
     }
     
     private func fetchUserDetails() {
-        user = KeychainService.loadSensitiveData()
-        addLabelsToStackView()
+        viewModel.fetchUserDetails { [weak self] user in
+            // Update the UI with fetched user details
+            self?.addLabelsToStackView(with: user)
+        }
     }
     
-    private func addLabelsToStackView() {
+    private func addLabelsToStackView(with user: User?) {
         if let user = user {
             addLabel(withText: "Name: \(user.name)")
             addLabel(withText: "Phone Number: \(user.phoneNumber)")
@@ -91,9 +93,18 @@ class ProfileController: UIViewController {
         }
     }
     
-    @objc func goToInitialScreen() {
-        KeychainService.clearSensitiveData()
-        UserDefaultsService.clearUserData()
+    @objc private func logout() {
+        let alert = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
+            self.viewModel.logout()
+            self.navigateToInitialScreen()
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    private func navigateToInitialScreen() {
         let initialViewController = InitialViewController()
         
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

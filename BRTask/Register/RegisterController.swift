@@ -14,6 +14,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     let days = Array(1...31).map { "\($0)" }
     let monthsNum = Array(1...12).map { String(format: "%02d", $0) }
     
+    var viewmodel = RegisterViewModel()
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Create Account"
@@ -54,6 +56,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         textField.layer.borderColor = UIColor.grayColor.cgColor
         textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 10
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
         textField.delegate = self
         return textField
     }()
@@ -170,6 +174,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func goToMainScreen() {
+        
         guard let name = nameTextField.text, !name.isEmpty,
               let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty,
               let dobText = dobTextField.text, !dobText.isEmpty else {
@@ -181,18 +186,32 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         guard let dob = dateFormatter.date(from: dobText) else {
             return
         }
-        
         _ = User(name: name, phoneNumber: phoneNumber, dateOfBirth: dob)
-        
-        if !KeychainService.saveSensitiveData(name: name, phoneNumber: phoneNumber, dob: dob) {
+        viewmodel.registerUser(name: name, phoneNumber: phoneNumber, dob: dob, onSuccess: {
+            let scene = self.sceneDelegate
+            scene?.switchToTabViewController()
+        }, onFailure: {
             print("Failed to save sensitive data")
-            return
+        })
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if var text = textField.text, !text.isEmpty {
+            text = text.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+            
+            if !text.hasPrefix("994") {
+                text = "994" + text
+            }
+            
+            let formattedText = formatPhoneNumber(text)
+            textField.text = formattedText
         }
-        
-        UserDefaultsService.setIsLoggedIn(true)
-        
-        let scene = self.sceneDelegate
-        scene?.switchToTabViewController()
+    }
+    
+    
+    func formatPhoneNumber(_ phone: String) -> String {
+        let formattedPhone = String.format(with: "XXX XX XXX XX XX", phone: phone)
+        return formattedPhone
     }
 }
 
@@ -246,6 +265,7 @@ extension RegisterController: UIPickerViewDelegate, UIPickerViewDataSource {
         let dob = "\(day).\(month).\(year)"
         dobTextField.text = dob
     }
+    
 }
 
 class PaddedTextField: UITextField {

@@ -9,8 +9,7 @@ import UIKit
 
 class HomeController: UIViewController, UITableViewDataSource, UITableViewDelegate, TransferDelegate {
     
-    private var cards: [Cards] = []
-    private let coreData = CoreData()
+    private var viewmodel = HomeViewModel()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -44,8 +43,8 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     private lazy var createButton: UIButton = {
         let button = UIButton()
         button.setTitle("+ Add new card", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .mainColor.withAlphaComponent(0.2)
+        button.setTitleColor(.mainColor, for: .normal)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(goToCardCreation), for: .touchUpInside)
         return button
@@ -117,21 +116,21 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func fetchCardData() {
-        coreData.fetchCardDatas { [weak self] cards in
-            self?.cards = cards
-            self?.tableView.reloadData()
+        viewmodel.fetchCardData { [weak self] in
             self?.updateUI()
+            self?.tableView.reloadData()
         }
     }
     
     private func updateUI() {
-        if cards.isEmpty {
+        if viewmodel.cards.isEmpty {
             emptyView.isHidden = false
             tableView.isHidden = true
         } else {
             emptyView.isHidden = true
             tableView.isHidden = false
         }
+        tableView.reloadData()
     }
     
     private func setupNavigationBar() {
@@ -161,12 +160,12 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return viewmodel.cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let card = cards[indexPath.row]
+        let card = viewmodel.cards[indexPath.row]
         cell.textLabel?.text = card.cardNumber
         return cell
     }
@@ -179,7 +178,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc private func showCardInfo() {
         var infoString = ""
-        for card in cards {
+        for card in viewmodel.cards {
             if let cardNumber = card.cardNumber {
                 infoString += "Card Number: \(cardNumber)\nBalance: \(card.balance) AZN\n\n"
             } else {
@@ -196,7 +195,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let card = cards[indexPath.row]
+        let card = viewmodel.cards[indexPath.row]
         if let cardNumber = card.cardNumber {
             let infoString = "Card Number: \(cardNumber)\nBalance: \(card.balance) AZN\n\n"
             
@@ -215,9 +214,9 @@ extension HomeController {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if indexPath.section == 0 {
-                let deletedCard = cards.remove(at: indexPath.row)
+                let deletedCard = viewmodel.cards.remove(at: indexPath.row)
                 
-                coreData.deleteCardDatas(card: deletedCard)
+                viewmodel.deleteCard(card: deletedCard)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }

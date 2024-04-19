@@ -12,7 +12,7 @@ import CoreData
 class CardCreateController: UIViewController, UITextFieldDelegate {
     
     var didAddButtonPressed: (() -> Void)?
-    private let coreData = CoreData()
+    private var viewModel = CardCreateViewModel()
     
     private lazy var cardView: UIView = {
         let view = UIView()
@@ -121,9 +121,9 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func formatCardNumber(_ textField: UITextField) {
-        if let text = textField.text, text.count > 0 {
-            textField.text = String.format(with: "XXXX XXXX XXXX XXXX", phone: text)
-        }
+        guard let text = textField.text else { return }
+        let formattedText = String(text.prefix(19))
+        textField.text = String.format(with: "XXXX XXXX XXXX XXXX", phone: formattedText)
     }
     
     @objc private func formatExpDate(_ textField: UITextField) {
@@ -150,18 +150,21 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
     }
     
     @objc private func addCard() {
-        guard let cardNumber = cardNumberTextField.text,
+        guard let cardNumber = cardNumberTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(),
+              cardNumber.count == 16,
               let cvvText = cvvTextField.text,
               let cvv = Int(cvvText),
               let expDate = expDateTextField.text else {
+            let alert = UIAlertController(title: "Invalid Data", message: "Please enter valid card info", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
             return
         }
-        let cardModel = CardModel(cardNumber: cardNumber, balance: 10, expDate: expDate, cvv: cvv)
-        coreData.saveCardDatas(cardModel: cardModel)
         
-        didAddButtonPressed?()
-        navigationController?.popViewController(animated: true)
+        let cardModel = CardModel(cardNumber: cardNumber, balance: 10, expDate: expDate, cvv: cvv)
+        viewModel.saveCard(card: cardModel, completion: { [weak self] in
+            self?.didAddButtonPressed?()
+            self?.navigationController?.popViewController(animated: true)
+        })
     }
-    
-    
 }

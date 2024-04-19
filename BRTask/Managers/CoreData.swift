@@ -13,7 +13,6 @@ class CoreData {
     var cards = [Cards]()
     var callBackForCards: (() -> Void)?
     
-    
     func saveCardDatas (cardModel: CardModel) {
         let model = Cards(context: contex)
         model.cardNumber = cardModel.cardNumber
