@@ -191,7 +191,6 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Error: Card number is nil")
             }
         }
-        
         let alertController = UIAlertController(title: "Card Information", message: infoString, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
