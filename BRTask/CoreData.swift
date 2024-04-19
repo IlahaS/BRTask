@@ -9,13 +9,10 @@ import Foundation
 import CoreData
 
 class CoreData {
-    var contex = AppDelegate().persistentContainer.viewContext
+    let contex = AppDelegate.shared.persistentContainer.viewContext
     var cards = [Cards]()
     var callBackForCards: (() -> Void)?
     
-    init(contex: NSManagedObjectContext) {
-        self.contex = contex
-    }
     
     func saveCardDatas (cardModel: CardModel) {
         let model = Cards(context: contex)
@@ -36,6 +33,14 @@ class CoreData {
             let cards = try contex.fetch(Cards.fetchRequest())
             self.cards = cards
             completion(cards)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func updateCardDatas(card: Cards) {
+        do {
+            try contex.save()
         } catch {
             print(error.localizedDescription)
         }

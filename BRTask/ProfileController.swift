@@ -87,7 +87,7 @@ class ProfileController: UIViewController {
             make.top.equalTo(stackView.snp.bottom).offset(56)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(60)
+            make.height.equalTo(50)
         }
     }
     

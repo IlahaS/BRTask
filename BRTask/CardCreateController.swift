@@ -12,7 +12,7 @@ import CoreData
 class CardCreateController: UIViewController, UITextFieldDelegate {
     
     var didAddButtonPressed: (() -> Void)?
-    private let coreData = CoreData(contex: AppDelegate().persistentContainer.viewContext)
+    private let coreData = CoreData()
     
     private lazy var cardView: UIView = {
         let view = UIView()
@@ -149,18 +149,17 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
     @objc private func addCard() {
         guard let cardNumber = cardNumberTextField.text,
               let cvvText = cvvTextField.text,
               let cvv = Int(cvvText),
-                let expDate = expDateTextField.text else {
+              let expDate = expDateTextField.text else {
             return
         }
-        
         let cardModel = CardModel(cardNumber: cardNumber, balance: 10, expDate: expDate, cvv: cvv)
-        
         coreData.saveCardDatas(cardModel: cardModel)
+        
+        didAddButtonPressed?()
         navigationController?.popViewController(animated: true)
     }
     
