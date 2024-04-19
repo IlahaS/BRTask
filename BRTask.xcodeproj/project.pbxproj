@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38521CFC2BD1ED3B00C4F965 /* CardCreateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521CFB2BD1ED3B00C4F965 /* CardCreateController.swift */; };
+		38521D032BD1F91700C4F965 /* Cards+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D012BD1F91700C4F965 /* Cards+CoreDataClass.swift */; };
+		38521D042BD1F91700C4F965 /* Cards+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D022BD1F91700C4F965 /* Cards+CoreDataProperties.swift */; };
+		38521D062BD1F95D00C4F965 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38521D052BD1F95D00C4F965 /* CoreData.swift */; };
 		3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */; };
 		3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */; };
-		3857ED5F2BD180EC00FAC96F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5E2BD180EC00FAC96F /* ViewController.swift */; };
-		3857ED622BD180EC00FAC96F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3857ED612BD180EC00FAC96F /* Base */; };
 		3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */; };
 		3857ED672BD180EE00FAC96F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3857ED662BD180EE00FAC96F /* Assets.xcassets */; };
-		3857ED6A2BD180EE00FAC96F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3857ED692BD180EE00FAC96F /* Base */; };
 		3857ED752BD180EE00FAC96F /* BRTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED742BD180EE00FAC96F /* BRTaskTests.swift */; };
 		3857ED7F2BD180EE00FAC96F /* BRTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED7E2BD180EE00FAC96F /* BRTaskUITests.swift */; };
 		3857ED812BD180EE00FAC96F /* BRTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED802BD180EE00FAC96F /* BRTaskUITestsLaunchTests.swift */; };
+		3857ED8E2BD1818A00FAC96F /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */; };
+		3857ED902BD19DE400FAC96F /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED8F2BD19DE400FAC96F /* ColorExtention.swift */; };
+		3857ED922BD19E4100FAC96F /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED912BD19E4100FAC96F /* StringExtention.swift */; };
+		3857ED952BD1A44C00FAC96F /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 3857ED942BD1A44C00FAC96F /* animation.json */; };
+		38D3A8D52BD1A5D80095A007 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 38D3A8D42BD1A5D80095A007 /* Lottie */; };
+		38D3A8D82BD1A7C30095A007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38D3A8D72BD1A7C30095A007 /* SnapKit */; };
+		38D3A8DA2BD1B1FC0095A007 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */; };
+		38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */; };
+		38D3A8DF2BD1C7990095A007 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DE2BD1C7990095A007 /* Models.swift */; };
+		38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E02BD1C9E10095A007 /* TabViewController.swift */; };
+		38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E22BD1CA1C0095A007 /* HomeController.swift */; };
+		38D3A8E52BD1CA2E0095A007 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +50,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38521CFB2BD1ED3B00C4F965 /* CardCreateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreateController.swift; sourceTree = "<group>"; };
+		38521D012BD1F91700C4F965 /* Cards+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38521D022BD1F91700C4F965 /* Cards+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		38521D052BD1F95D00C4F965 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		3857ED572BD180EC00FAC96F /* BRTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3857ED5E2BD180EC00FAC96F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3857ED612BD180EC00FAC96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3857ED642BD180EC00FAC96F /* BRTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BRTask.xcdatamodel; sourceTree = "<group>"; };
 		3857ED662BD180EE00FAC96F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3857ED692BD180EE00FAC96F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3857ED6B2BD180EE00FAC96F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3857ED702BD180EE00FAC96F /* BRTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED742BD180EE00FAC96F /* BRTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRTaskTests.swift; sourceTree = "<group>"; };
 		3857ED7A2BD180EE00FAC96F /* BRTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BRTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED7E2BD180EE00FAC96F /* BRTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRTaskUITests.swift; sourceTree = "<group>"; };
 		3857ED802BD180EE00FAC96F /* BRTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		3857ED8F2BD19DE400FAC96F /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
+		3857ED912BD19E4100FAC96F /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		3857ED942BD1A44C00FAC96F /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		38D3A8DE2BD1C7990095A007 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		38D3A8E02BD1C9E10095A007 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		38D3A8E22BD1CA1C0095A007 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D3A8D52BD1A5D80095A007 /* Lottie in Frameworks */,
+				38D3A8D82BD1A7C30095A007 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,11 +129,21 @@
 			children = (
 				3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */,
 				3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */,
-				3857ED5E2BD180EC00FAC96F /* ViewController.swift */,
-				3857ED602BD180EC00FAC96F /* Main.storyboard */,
+				3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */,
+				38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */,
+				38D3A8E02BD1C9E10095A007 /* TabViewController.swift */,
+				38D3A8E42BD1CA2E0095A007 /* ProfileController.swift */,
+				38D3A8E22BD1CA1C0095A007 /* HomeController.swift */,
+				38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */,
+				38521CFB2BD1ED3B00C4F965 /* CardCreateController.swift */,
+				38521D052BD1F95D00C4F965 /* CoreData.swift */,
+				38D3A8DE2BD1C7990095A007 /* Models.swift */,
+				3857ED932BD19E5500FAC96F /* Extentions */,
+				3857ED942BD1A44C00FAC96F /* animation.json */,
 				3857ED662BD180EE00FAC96F /* Assets.xcassets */,
-				3857ED682BD180EE00FAC96F /* LaunchScreen.storyboard */,
 				3857ED6B2BD180EE00FAC96F /* Info.plist */,
+				38521D012BD1F91700C4F965 /* Cards+CoreDataClass.swift */,
+				38521D022BD1F91700C4F965 /* Cards+CoreDataProperties.swift */,
 				3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */,
 			);
 			path = BRTask;
@@ -130,6 +166,15 @@
 			path = BRTaskUITests;
 			sourceTree = "<group>";
 		};
+		3857ED932BD19E5500FAC96F /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				3857ED8F2BD19DE400FAC96F /* ColorExtention.swift */,
+				3857ED912BD19E4100FAC96F /* StringExtention.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +191,10 @@
 			dependencies = (
 			);
 			name = BRTask;
+			packageProductDependencies = (
+				38D3A8D42BD1A5D80095A007 /* Lottie */,
+				38D3A8D72BD1A7C30095A007 /* SnapKit */,
+			);
 			productName = BRTask;
 			productReference = 3857ED572BD180EC00FAC96F /* BRTask.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +267,10 @@
 				Base,
 			);
 			mainGroup = 3857ED4E2BD180EC00FAC96F;
+			packageReferences = (
+				3857ED962BD1A4F000FAC96F /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				38D3A8D62BD1A7650095A007 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 3857ED582BD180EC00FAC96F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,9 +287,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3857ED952BD1A44C00FAC96F /* animation.json in Resources */,
 				3857ED672BD180EE00FAC96F /* Assets.xcassets in Resources */,
-				3857ED6A2BD180EE00FAC96F /* Base in Resources */,
-				3857ED622BD180EC00FAC96F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +313,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3857ED5F2BD180EC00FAC96F /* ViewController.swift in Sources */,
 				3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */,
+				3857ED922BD19E4100FAC96F /* StringExtention.swift in Sources */,
+				38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */,
+				38521CFC2BD1ED3B00C4F965 /* CardCreateController.swift in Sources */,
+				3857ED8E2BD1818A00FAC96F /* InitialViewController.swift in Sources */,
+				38D3A8DA2BD1B1FC0095A007 /* RegisterController.swift in Sources */,
+				3857ED902BD19DE400FAC96F /* ColorExtention.swift in Sources */,
+				38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */,
+				38D3A8DF2BD1C7990095A007 /* Models.swift in Sources */,
 				3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */,
+				38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */,
 				3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */,
+				38521D062BD1F95D00C4F965 /* CoreData.swift in Sources */,
+				38521D032BD1F91700C4F965 /* Cards+CoreDataClass.swift in Sources */,
+				38521D042BD1F91700C4F965 /* Cards+CoreDataProperties.swift in Sources */,
+				38D3A8E52BD1CA2E0095A007 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,25 +363,6 @@
 			targetProxy = 3857ED7B2BD180EE00FAC96F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3857ED602BD180EC00FAC96F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3857ED612BD180EC00FAC96F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3857ED682BD180EE00FAC96F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3857ED692BD180EE00FAC96F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3857ED822BD180EE00FAC96F /* Debug */ = {
@@ -451,7 +496,6 @@
 				INFOPLIST_FILE = BRTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -479,7 +523,6 @@
 				INFOPLIST_FILE = BRTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,6 +654,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3857ED962BD1A4F000FAC96F /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
+		38D3A8D62BD1A7650095A007 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38D3A8D42BD1A5D80095A007 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3857ED962BD1A4F000FAC96F /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		38D3A8D72BD1A7C30095A007 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38D3A8D62BD1A7650095A007 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */ = {
