@@ -126,9 +126,11 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         if viewmodel.cards.isEmpty {
             emptyView.isHidden = false
             tableView.isHidden = true
+            transferButton.isHidden = true
         } else {
             emptyView.isHidden = true
             tableView.isHidden = false
+            transferButton.isHidden = false
         }
         tableView.reloadData()
     }
