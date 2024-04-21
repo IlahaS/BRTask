@@ -88,16 +88,14 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
         cardView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-100)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(200)
         }
         
         cardView.addSubview(cardNumberTextField)
         cardNumberTextField.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         

@@ -53,8 +53,7 @@ class ProfileController: UIViewController {
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(36)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
+            make.horizontalEdges.equalToSuperview().inset(24)
         }
     }
     

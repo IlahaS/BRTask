@@ -83,8 +83,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
         }
         
         view.addSubview(emptyView)
@@ -115,7 +114,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         view.addSubview(transferButton)
         transferButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(50)
             make.top.equalTo(tableView.snp.bottom)

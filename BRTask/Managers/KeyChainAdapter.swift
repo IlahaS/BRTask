@@ -56,19 +56,3 @@ class KeychainService {
         SecItemDelete(query as CFDictionary)
     }
 }
-
-class UserDefaultsService {
-    static let isLoggedInKey = "isLoggedIn"
-    
-    static func setIsLoggedIn(_ value: Bool) {
-        UserDefaults.standard.set(value, forKey: isLoggedInKey)
-    }
-    
-    static func clearUserData() {
-        UserDefaults.standard.removeObject(forKey: isLoggedInKey)
-    }
-    
-    static func isLoggedIn() -> Bool {
-        return UserDefaults.standard.bool(forKey: isLoggedInKey)
-    }
-}

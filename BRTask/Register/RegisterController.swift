@@ -71,7 +71,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    private lazy var dobTextField: PaddedTextField = {
+    private lazy var birtDateTextField: PaddedTextField = {
         let textField = PaddedTextField()
         textField.placeholder = "Date of Birth"
         textField.font = UIFont.systemFont(ofSize: 16)
@@ -84,7 +84,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    private let dobPickerView = UIPickerView()
+    private let birthDatePickerView = UIPickerView()
     
     private let pickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -120,47 +120,41 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalToSuperview().offset(112)
         }
         
         view.addSubview(paragraphLabel)
         paragraphLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(titleLabel.snp.bottom).offset(12)
         }
         
         view.addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(paragraphLabel.snp.bottom).offset(56)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         view.addSubview(phoneNumberTextField)
         phoneNumberTextField.snp.makeConstraints { make in
             make.top.equalTo(nameTextField.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
-        view.addSubview(dobTextField)
-        dobTextField.snp.makeConstraints { make in
+        view.addSubview(birtDateTextField)
+        birtDateTextField.snp.makeConstraints { make in
             make.top.equalTo(phoneNumberTextField.snp.bottom).offset(24)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
         
         view.addSubview(signUpButton)
         signUpButton.snp.makeConstraints { make in
-            make.top.equalTo(dobTextField.snp.bottom).offset(36)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.top.equalTo(birtDateTextField.snp.bottom).offset(36)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(50)
         }
     }
@@ -181,7 +175,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         guard let name = nameTextField.text, !name.isEmpty,
               let phoneNumber = phoneNumberTextField.text, !phoneNumber.isEmpty,
-              let dobText = dobTextField.text, !dobText.isEmpty else {
+              let dobText = birtDateTextField.text, !dobText.isEmpty else {
             return
         }
         
@@ -219,9 +213,6 @@ class RegisterController: UIViewController, UITextFieldDelegate {
 }
 
 extension UIViewController {
-    var appDelegate: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
     
     var sceneDelegate: SceneDelegate? {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -266,7 +257,7 @@ extension RegisterController: UIPickerViewDelegate, UIPickerViewDataSource {
         let month = monthsNum[pickerView.selectedRow(inComponent: 1)]
         let year = 1922 + pickerView.selectedRow(inComponent: 2)
         let dob = "\(day).\(month).\(year)"
-        dobTextField.text = dob
+        birtDateTextField.text = dob
     }
 }
 

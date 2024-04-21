@@ -18,6 +18,7 @@
 		385452C62BD28379004D490C /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C52BD28379004D490C /* TransferViewModel.swift */; };
 		385452C82BD288FF004D490C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C72BD288FE004D490C /* ProfileViewModel.swift */; };
 		385452CA2BD585A3004D490C /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C92BD585A3004D490C /* ReusableButton.swift */; };
+		385452CC2BD5A09E004D490C /* UserDefaultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452CB2BD5A09E004D490C /* UserDefaultsAdapter.swift */; };
 		3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */; };
 		3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */; };
 		3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */; };
@@ -69,6 +70,7 @@
 		385452C52BD28379004D490C /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		385452C72BD288FE004D490C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		385452C92BD585A3004D490C /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
+		385452CB2BD5A09E004D490C /* UserDefaultsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAdapter.swift; sourceTree = "<group>"; };
 		3857ED572BD180EC00FAC96F /* BRTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,8 +135,9 @@
 		385452B72BD2715A004D490C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				38D3A8DB2BD1C76C0095A007 /* KeyChainAdapter.swift */,
 				38521D052BD1F95D00C4F965 /* CoreData.swift */,
+				38D3A8DB2BD1C76C0095A007 /* KeyChainAdapter.swift */,
+				385452CB2BD5A09E004D490C /* UserDefaultsAdapter.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				385452BC2BD27436004D490C /* HomeViewModel.swift in Sources */,
+				385452CC2BD5A09E004D490C /* UserDefaultsAdapter.swift in Sources */,
 				3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */,
 				3857ED922BD19E4100FAC96F /* StringExtention.swift in Sources */,
 				38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */,
@@ -571,7 +575,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9JBJ9TZ7T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BRTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -598,7 +602,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9JBJ9TZ7T5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BRTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

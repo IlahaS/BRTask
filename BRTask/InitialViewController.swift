@@ -11,14 +11,14 @@ import SnapKit
 
 class InitialViewController: UIViewController {
     
-    private var animationView: LottieAnimationView = {
+    private let animationView: LottieAnimationView = {
         let view = LottieAnimationView(name: "animation")
         view.contentMode = .scaleAspectFit
         view.play()
         return view
     }()
     
-    private var titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Register to start banking securely"
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
@@ -28,7 +28,7 @@ class InitialViewController: UIViewController {
         return label
     }()
     
-    private var paragraphLabel: UILabel = {
+    private let paragraphLabel: UILabel = {
         let label = UILabel()
         label.text = "Complete the registration to access all features and services of our bank app."
         label.font = UIFont.systemFont(ofSize: 16)
@@ -54,32 +54,30 @@ class InitialViewController: UIViewController {
     
     func setupUI() {
         
-        view.addSubview(animationView)
+        [animationView,
+         titleLabel,
+         paragraphLabel,
+         registerButton,
+        ].forEach(view.addSubview)
+        
         animationView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(100)
-            make.leading.equalToSuperview().offset(40)
-            make.trailing.equalToSuperview().offset(-40)
+            make.horizontalEdges.equalToSuperview().inset(40)
             make.height.equalTo(350)
         }
         
-        view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(animationView.snp.bottom).offset(20)
         }
         
-        view.addSubview(paragraphLabel)
         paragraphLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalTo(titleLabel.snp.bottom).offset(16)
         }
         
-        view.addSubview(registerButton)
         registerButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(60)
             make.top.equalTo(paragraphLabel.snp.bottom).offset(60)
         }
