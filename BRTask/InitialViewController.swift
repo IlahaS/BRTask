@@ -38,22 +38,16 @@ class InitialViewController: UIViewController {
         return label
     }()
     
-    private lazy var registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Register", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowRadius = 4
-        button.addTarget(self, action: #selector(goToRegister), for: .touchUpInside)
+    private lazy var registerButton: ReusableButton = {
+        let button = ReusableButton(title: "Register", color: .mainColor) {
+            self.goToRegister()
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         setupUI()
     }
@@ -92,7 +86,7 @@ class InitialViewController: UIViewController {
     }
     
     @objc func goToRegister() {
-        let vc = RegisterController()
+        let vc = RegisterController(viewModel: RegisterViewModel())
         navigationController?.pushViewController(vc, animated: true)
     }
 }

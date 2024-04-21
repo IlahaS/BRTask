@@ -6,10 +6,18 @@
 //
 import UIKit
 
-
 class HomeController: UIViewController, UITableViewDataSource, UITableViewDelegate, TransferDelegate {
     
-    private var viewmodel = HomeViewModel()
+    private var viewModel: HomeViewModel
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -50,18 +58,16 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         return button
     }()
     
-    private lazy var transferButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Transfer between cards", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(goToTransfer), for: .touchUpInside)
+    private lazy var transferButton: ReusableButton = {
+        let button = ReusableButton(title: "Transfer between cards", color: .mainColor) {
+            self.goToTransfer()
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         setupNavigationBar()
         setupUI()
@@ -69,6 +75,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         fetchCardData()
     }
     
@@ -116,14 +123,14 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     private func fetchCardData() {
-        viewmodel.fetchCardData { [weak self] in
+        viewModel.fetchCardData { [weak self] in
             self?.updateUI()
             self?.tableView.reloadData()
         }
     }
     
     private func updateUI() {
-        if viewmodel.cards.isEmpty {
+        if viewModel.cards.isEmpty {
             emptyView.isHidden = false
             tableView.isHidden = true
             transferButton.isHidden = true
@@ -137,9 +144,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     private func setupNavigationBar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCardCreation))
-        
         let infoButton = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(showCardInfo))
-        
         navigationItem.rightBarButtonItem = addButton
         navigationItem.leftBarButtonItem = infoButton
     }
@@ -149,11 +154,10 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func goToCardCreation() {
-        let vc = CardCreateController()
+        let vc = CardCreateController(viewModel: CardCreateViewModel())
         vc.didAddButtonPressed = { [weak self] in
             self?.fetchCardData()
         }
-        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -162,12 +166,12 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewmodel.cards.count
+        return viewModel.cards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        let card = viewmodel.cards[indexPath.row]
+        let card = viewModel.cards[indexPath.row]
         cell.textLabel?.text = card.cardNumber
         return cell
     }
@@ -177,20 +181,21 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc private func goToTransfer() {
-        let vc = TransferController()
+        let vc = TransferController(viewModel: TransferViewModel())
         vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func showCardInfo() {
         var infoString = ""
-        for card in viewmodel.cards {
+        for card in viewModel.cards {
             if let cardNumber = card.cardNumber {
                 infoString += "Card Number: \(cardNumber)\nBalance: \(card.balance) AZN\n\n"
             } else {
                 print("Error: Card number is nil")
             }
         }
+        infoString = infoString.trimmingCharacters(in: .whitespacesAndNewlines)
         let alertController = UIAlertController(title: "Card Information", message: infoString, preferredStyle: .alert)
         let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
@@ -200,11 +205,11 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let card = viewmodel.cards[indexPath.row]
+        let card = viewModel.cards[indexPath.row]
         if let cardNumber = card.cardNumber {
             let infoString = "Card Number: \(cardNumber)\nBalance: \(card.balance) AZN\n\n"
             
-            let alertController = UIAlertController(title: "Card Information", message: infoString, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Card Information", message: infoString.trimmingCharacters(in: .whitespacesAndNewlines), preferredStyle: .alert)
             let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
             alertController.addAction(dismissAction)
             present(alertController, animated: true, completion: nil)
@@ -219,12 +224,10 @@ extension HomeController {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if indexPath.section == 0 {
-                let deletedCard = viewmodel.cards.remove(at: indexPath.row)
-                
-                viewmodel.deleteCard(card: deletedCard)
+                let deletedCard = viewModel.cards.remove(at: indexPath.row)
+                viewModel.deleteCard(card: deletedCard)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
 }
-

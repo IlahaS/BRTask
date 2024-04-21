@@ -12,7 +12,16 @@ import CoreData
 class CardCreateController: UIViewController, UITextFieldDelegate {
     
     var didAddButtonPressed: (() -> Void)?
-    private var viewModel = CardCreateViewModel()
+    private var viewModel: CardCreateViewModel
+    
+    init(viewModel: CardCreateViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var cardView: UIView = {
         let view = UIView()
@@ -50,22 +59,19 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
         return textField
     }()
     
-    private lazy var addButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Add Card", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(addCard), for: .touchUpInside)
+    private lazy var addButton: ReusableButton = {
+        let button = ReusableButton(title: "Add Card", color: .mainColor) {
+            self.addCard()
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         cvvTextField.delegate = self
         expDateTextField.delegate = self
-        
         setupViews()
     }
     
@@ -153,6 +159,7 @@ class CardCreateController: UIViewController, UITextFieldDelegate {
         guard let cardNumber = cardNumberTextField.text?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(),
               cardNumber.count == 16,
               let cvvText = cvvTextField.text,
+              cvvText.count == 3,
               let cvv = Int(cvvText),
               let expDate = expDateTextField.text else {
             let alert = UIAlertController(title: "Invalid Data", message: "Please enter valid card info", preferredStyle: .alert)

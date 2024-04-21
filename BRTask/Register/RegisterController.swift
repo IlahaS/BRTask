@@ -14,7 +14,16 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     let days = Array(1...31).map { "\($0)" }
     let monthsNum = Array(1...12).map { String(format: "%02d", $0) }
     
-    var viewmodel = RegisterViewModel()
+    var viewModel: RegisterViewModel
+    
+    init(viewModel: RegisterViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -82,22 +91,16 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         return pickerView
     }()
     
-    private lazy var signUpButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Register", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.8
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowRadius = 4
-        button.addTarget(self, action: #selector(goToMainScreen), for: .touchUpInside)
+    private lazy var signUpButton: ReusableButton = {
+        let button = ReusableButton(title: "Register", color: .mainColor) {
+            self.goToMainScreen()
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         setupUI()
         pickerView.delegate = self
@@ -114,6 +117,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     func setupUI() {
+        
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
@@ -187,7 +191,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
         _ = User(name: name, phoneNumber: phoneNumber, dateOfBirth: dob)
-        viewmodel.registerUser(name: name, phoneNumber: phoneNumber, dob: dob, onSuccess: {
+        viewModel.registerUser(name: name, phoneNumber: phoneNumber, dob: dob, onSuccess: {
             let scene = self.sceneDelegate
             scene?.switchToTabViewController()
         }, onFailure: {
@@ -207,7 +211,6 @@ class RegisterController: UIViewController, UITextFieldDelegate {
             textField.text = formattedText
         }
     }
-    
     
     func formatPhoneNumber(_ phone: String) -> String {
         let formattedPhone = String.format(with: "XXX XX XXX XX XX", phone: phone)
@@ -265,7 +268,6 @@ extension RegisterController: UIPickerViewDelegate, UIPickerViewDataSource {
         let dob = "\(day).\(month).\(year)"
         dobTextField.text = dob
     }
-    
 }
 
 class PaddedTextField: UITextField {

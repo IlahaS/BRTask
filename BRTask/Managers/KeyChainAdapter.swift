@@ -53,7 +53,6 @@ class KeychainService {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service
         ]
-        
         SecItemDelete(query as CFDictionary)
     }
 }

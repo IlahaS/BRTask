@@ -17,6 +17,7 @@
 		385452C42BD27596004D490C /* CardCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C32BD27596004D490C /* CardCreateViewModel.swift */; };
 		385452C62BD28379004D490C /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C52BD28379004D490C /* TransferViewModel.swift */; };
 		385452C82BD288FF004D490C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C72BD288FE004D490C /* ProfileViewModel.swift */; };
+		385452CA2BD585A3004D490C /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385452C92BD585A3004D490C /* ReusableButton.swift */; };
 		3857ED5B2BD180EC00FAC96F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */; };
 		3857ED5D2BD180EC00FAC96F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */; };
 		3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3857ED632BD180EC00FAC96F /* BRTask.xcdatamodeld */; };
@@ -31,7 +32,7 @@
 		38D3A8D52BD1A5D80095A007 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 38D3A8D42BD1A5D80095A007 /* Lottie */; };
 		38D3A8D82BD1A7C30095A007 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38D3A8D72BD1A7C30095A007 /* SnapKit */; };
 		38D3A8DA2BD1B1FC0095A007 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */; };
-		38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */; };
+		38D3A8DC2BD1C76C0095A007 /* KeyChainAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DB2BD1C76C0095A007 /* KeyChainAdapter.swift */; };
 		38D3A8DF2BD1C7990095A007 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8DE2BD1C7990095A007 /* UserModel.swift */; };
 		38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E02BD1C9E10095A007 /* TabViewController.swift */; };
 		38D3A8E32BD1CA1C0095A007 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D3A8E22BD1CA1C0095A007 /* HomeController.swift */; };
@@ -67,6 +68,7 @@
 		385452C32BD27596004D490C /* CardCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCreateViewModel.swift; sourceTree = "<group>"; };
 		385452C52BD28379004D490C /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		385452C72BD288FE004D490C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		385452C92BD585A3004D490C /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
 		3857ED572BD180EC00FAC96F /* BRTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BRTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		3857ED912BD19E4100FAC96F /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		3857ED942BD1A44C00FAC96F /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
 		38D3A8D92BD1B1FC0095A007 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-		38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		38D3A8DB2BD1C76C0095A007 /* KeyChainAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainAdapter.swift; sourceTree = "<group>"; };
 		38D3A8DE2BD1C7990095A007 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		38D3A8E02BD1C9E10095A007 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		38D3A8E22BD1CA1C0095A007 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 		385452B72BD2715A004D490C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				38D3A8DB2BD1C76C0095A007 /* KeyChain.swift */,
+				38D3A8DB2BD1C76C0095A007 /* KeyChainAdapter.swift */,
 				38521D052BD1F95D00C4F965 /* CoreData.swift */,
 			);
 			path = Managers;
@@ -199,10 +201,11 @@
 			children = (
 				3857ED5A2BD180EC00FAC96F /* AppDelegate.swift */,
 				3857ED5C2BD180EC00FAC96F /* SceneDelegate.swift */,
+				385452C92BD585A3004D490C /* ReusableButton.swift */,
+				38D3A8E02BD1C9E10095A007 /* TabViewController.swift */,
+				3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */,
 				385452B72BD2715A004D490C /* Managers */,
 				3857ED932BD19E5500FAC96F /* Extentions */,
-				3857ED8D2BD1818A00FAC96F /* InitialViewController.swift */,
-				38D3A8E02BD1C9E10095A007 /* TabViewController.swift */,
 				385452B62BD27142004D490C /* Register */,
 				385452BA2BD2740D004D490C /* Home */,
 				385452C12BD2753B004D490C /* CardCreation */,
@@ -394,8 +397,9 @@
 				385452B92BD2721B004D490C /* RegisterViewModel.swift in Sources */,
 				385452BE2BD274FD004D490C /* CardModel.swift in Sources */,
 				3857ED902BD19DE400FAC96F /* ColorExtention.swift in Sources */,
-				38D3A8DC2BD1C76C0095A007 /* KeyChain.swift in Sources */,
+				38D3A8DC2BD1C76C0095A007 /* KeyChainAdapter.swift in Sources */,
 				38D3A8DF2BD1C7990095A007 /* UserModel.swift in Sources */,
+				385452CA2BD585A3004D490C /* ReusableButton.swift in Sources */,
 				3857ED652BD180EC00FAC96F /* BRTask.xcdatamodeld in Sources */,
 				385452C82BD288FF004D490C /* ProfileViewModel.swift in Sources */,
 				38D3A8E12BD1C9E10095A007 /* TabViewController.swift in Sources */,

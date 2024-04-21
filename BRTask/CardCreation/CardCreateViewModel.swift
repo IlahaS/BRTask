@@ -8,6 +8,7 @@
 import Foundation
 
 class CardCreateViewModel {
+    
     private let coreData = CoreData()
     
     func saveCard(card: CardModel, completion: @escaping () -> Void) {

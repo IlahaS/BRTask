@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreData {
+    
     let contex = AppDelegate.shared.persistentContainer.viewContext
     var cards = [Cards]()
     var callBackForCards: (() -> Void)?

@@ -19,8 +19,8 @@ final class TabViewController: UITabBarController {
     }
     
     private func setUpTabs() {
-        let home = self.createNav(with: "Home", and: UIImage(systemName: "house") ?? .image, and: HomeController())
-        let profile = self.createNav(with: "Profil", and: UIImage(systemName: "person") ?? .image, and: ProfileController())
+        let home = self.createNav(with: "Home", and: UIImage(systemName: "house") ?? .image, and: HomeController(viewModel: HomeViewModel()))
+        let profile = self.createNav(with: "Profil", and: UIImage(systemName: "person") ?? .image, and: ProfileController(viewModel: ProfileViewModel()))
         self.setViewControllers([home,profile], animated: true)
     }
     
@@ -37,4 +37,3 @@ final class TabViewController: UITabBarController {
         self.tabBar.backgroundColor = .white
     }
 }
-

@@ -14,8 +14,16 @@ protocol TransferDelegate: AnyObject {
 class TransferController: UIViewController {
     
     weak var delegate: TransferDelegate?
-    private let viewmodel = TransferViewModel()
+    private let viewModel: TransferViewModel
     
+    init(viewModel: TransferViewModel){
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var fromCardPicker: UIPickerView = {
         let pickerView = UIPickerView()
@@ -40,25 +48,23 @@ class TransferController: UIViewController {
         return textField
     }()
     
-    private lazy var transferButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Transfer", for: .normal)
-        button.backgroundColor = .mainColor
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(transferAmount), for: .touchUpInside)
+    private lazy var transferButton: ReusableButton = {
+        let button = ReusableButton(title: "Transfer", color: .mainColor) {
+            self.transferAmount()
+        }
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         fetchCardData()
         setupUI()
     }
     
     private func fetchCardData() {
-        viewmodel.fetchCardData { [weak self] in
+        viewModel.fetchCardData { [weak self] in
             self?.fromCardPicker.reloadAllComponents()
             self?.toCardPicker.reloadAllComponents()
         }
@@ -127,8 +133,8 @@ class TransferController: UIViewController {
             return
         }
         
-        guard fromIndex >= 0 && fromIndex < viewmodel.cards.count,
-              toIndex >= 0 && toIndex < viewmodel.cards.count,
+        guard fromIndex >= 0 && fromIndex < viewModel.cards.count,
+              toIndex >= 0 && toIndex < viewModel.cards.count,
               let amountText = amountTextField.text,
               !amountText.isEmpty,
               let amount = Double(amountText) else {
@@ -140,10 +146,7 @@ class TransferController: UIViewController {
             return
         }
         
-        let fromCard = viewmodel.cards[fromIndex]
-        let toCard = viewmodel.cards[toIndex]
-        
-        viewmodel.transferAmount(fromIndex: fromIndex, toIndex: toIndex, amount: amount) { [weak self] success in
+        viewModel.transferAmount(fromIndex: fromIndex, toIndex: toIndex, amount: amount) { [weak self] success in
             if success {
                 self?.delegate?.transferCompleted()
                 
@@ -156,7 +159,7 @@ class TransferController: UIViewController {
                 self?.present(alert, animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Error",
-                                              message: "Failed to transfer amount. Please try again later.",
+                                              message: "Selected amount is more than account balance.",
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self?.present(alert, animated: true, completion: nil)
@@ -172,11 +175,11 @@ extension TransferController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewmodel.cards.count
+        return viewModel.cards.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewmodel.cards[row].cardNumber
+        return viewModel.cards[row].cardNumber
     }
 }
 

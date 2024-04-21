@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import Foundation
 
 class RegisterViewModel {
@@ -20,4 +19,3 @@ class RegisterViewModel {
         onSuccess()
     }
 }
-

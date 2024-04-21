@@ -10,7 +10,6 @@ import Foundation
 class HomeViewModel {
     
     private let coreData = CoreData()
-    
     var cards: [Cards] = []
     
     func fetchCardData(completion: @escaping () -> Void) {

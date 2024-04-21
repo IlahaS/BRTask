@@ -21,4 +21,3 @@ class ProfileViewModel {
         UserDefaultsService.clearUserData()
     }
 }
-
